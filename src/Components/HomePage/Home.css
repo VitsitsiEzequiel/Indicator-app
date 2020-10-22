@@ -1,0 +1,93 @@
+.myHome{
+    margin-left: 40px;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+
+.App-header{
+    background-color: white;
+    max-height: 100px;
+    margin-left: 5px;
+    margin-right:5px;
+    padding-top: 20px;
+    
+}
+.myFragment{
+    position: relative;
+    float: right;
+    
+}
+.App-header > Fragment{
+    text-align: center;
+    color: lightgray;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+ 
+}
+
+.mybtn{
+    position: absolute;
+    float: right;
+}
+.myLogo{
+    max-height: 100PX;
+
+}
+
+.myLogo > img{
+    padding-left: 10px;
+    padding-top: 10px;
+    max-height: 100PX;
+    max-width: 80px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+   
+}
+
+title{
+    color:	#696969;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+    font-style: normal;
+    display: inline;
+    padding-left: 10px;
+    padding-top: 15px;
+ 
+}
+.myBody{
+    padding-top: 50px;
+    margin-left: 5rem;
+    margin-right: 3rem;
+ 
+
+}
+
+.myBody > h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: black; 
+    padding-bottom: 1rem;
+}
+.myBody > h5 {
+    font-size: 20px;
+    padding-bottom: 1rem;
+}
+
+p{
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+
+}
+
+.sub-points{
+   margin-left: 3rem;
+}
+
+button{
+    color: steelblue;
+    background-color: white;
+    font-size: 16px;
+    margin-top: 10px;
+    border-style: solid;
+}
