@@ -1,8 +1,8 @@
 import React, { Component, Fragment} from 'react'
 import './Home.css'
-import { MDBBtn,MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
+import { MDBBtn, MDBIcon } from "mdbreact";
 import { FaPlus } from "react-icons/fa";
-import paper from '@material-ui/core';
+import { BiAnalyse } from "react-icons/bi";
 
 
 export class Home extends Component {
@@ -17,18 +17,28 @@ export class Home extends Component {
     window.location.href="/newReport"
   }
 
+  handleBtn = () =>{
+    window.location.href="timePeriods"
+  }
+
     render() {
         return (
-            <div>
+            <div className="my-Home">
              {/* Header section */}
              <paper>
                <header className="App-header">
                  <logo className="mylogo"> <img src="/images/LOGO.png" alt="Logo"/>
                     <title>DHIS 2 Indicator App</title>
                    </logo> 
-                     <MDBBtn  color="primary" href="/newReport"  style={{positin:"relative", float:"right"}} onClick={this.handleBtnClick}> <FaPlus /> Create</MDBBtn>
-                  <hr/>
+
+                  <btn--container>
+                  <input type="text" icon="search" placeholder="Search for existing reports" aria-label="Search"  />
+                    <MDBIcon icon="search" style={{padding:"10px"}} />
+                       <MDBBtn  color="primary" href="/timePeriods"  style={{float:"right",justifyContent:"center" }} onClick={this.handleBtn}> <BiAnalyse /> Analyze</MDBBtn>
+                       <MDBBtn  color="primary" href="/newReport"  style={{justifyContent:"center", float:"right"}} onClick={this.handleBtnClick}> <FaPlus /> Create</MDBBtn>
+                  </btn--container>
                </header> 
+
                </paper>
                <div className="myBody">
                  <h1>Welcome to Indicator App!</h1>

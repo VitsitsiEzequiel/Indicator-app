@@ -1,3 +1,4 @@
+
 .myHome{
     margin-left: 40px;
     justify-content: center;
@@ -6,11 +7,17 @@
 
 
 .App-header{
-    background-color: white;
+  
     max-height: 100px;
     margin-left: 5px;
     margin-right:5px;
-    padding-top: 20px;
+    padding-top: 5px;
+    margin-top: 1rem;
+    border-bottom: 3px solid rgba(4, 81, 246, 0.787);
+    border-radius: 6px;
+    padding: 8px 16px 8px 36px;
+    padding-bottom: 1.5rem;
+
     
 }
 .myFragment{
@@ -19,10 +26,11 @@
     
 }
 .App-header > Fragment{
-    text-align: center;
+    display: inline;
     color: lightgray;
     padding-bottom: 10px;
     margin-bottom: 10px;
+   
  
 }
 
@@ -54,8 +62,16 @@ title{
     display: inline;
     padding-left: 10px;
     padding-top: 15px;
+    margin-right: 4rem;
  
 }
+
+ input{
+     width: 40%;
+     padding: 6px 14px 6px 24px;
+     float: center;
+ }
+
 .myBody{
     padding-top: 50px;
     margin-left: 5rem;
@@ -70,6 +86,7 @@ title{
     color: black; 
     padding-bottom: 1rem;
 }
+
 .myBody > h5 {
     font-size: 20px;
     padding-bottom: 1rem;
