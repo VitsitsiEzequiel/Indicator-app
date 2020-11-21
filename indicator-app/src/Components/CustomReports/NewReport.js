@@ -3,22 +3,26 @@ import {
     MDBBox,MDBRow,MDBCol,MDBInput,MDBBtn,MDBCard, MDBCardBody,MDBCardHeader,MDBTable,
     MDBTableHead, MDBTableBody, MDBCardFooter, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, 
     MDBDropdownItem,MDBCardTitle,MDBIcon,MDBContainer,MDBInputGroup,} from 'mdbreact';
-import  "./IndicatorTable";
-//import { DataGrid, ColDef, ValueGetterParams } from '@material-ui/data-grid';
+
 import {AgGridReact,AgGridColumn} from 'ag-grid-react'
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-
 import Grid from "@material-ui/core/Grid";
-//import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
 import './NewReport.css'
-import {TreeSelect} from 'array-to-tree'
+//import {TreeSelect} from 'array-to-tree'
+import 'react-dropdown-tree-select/dist/styles.css'
+import 'react-dropdown-tree-select/dist/styles.css'
+import {Button, TreeSelect} from 'antd';
+import 'antd/dist/antd.css';
 //import Loader from 'react-loader-spinner';//To be used later
+//import Paper from '@material-ui/core/Paper';
+//import { DataGrid, ColDef, ValueGetterParams } from '@material-ui/data-grid';
+import OrgUnits from './OrgUnits';
 
 
 //validation header
-//const basicAuth = 'Basic ' + btoa('admin:district');// To be used later when api calls start working
+const basicAuth = 'Basic ' + btoa('admin:district');// To be used later when api calls start working
 
 function NewReport(props) {
   //Variable definition
@@ -58,25 +62,261 @@ function NewReport(props) {
    setTableRows(value);
  }
  
-// //initializing an array-to-tree library that will turn an array of org units into a tree form
-//  var arrayToTree = require('array-to-tree');
+ //initializing an array-to-tree library that will turn an array of org units into a tree form
+ var arrayToTree = require('array-to-tree');
 
-//  //An array of Org Units
+ //An array of Org Units
+ var OrgUnits = [{
+  name: "Adonkia CHP",
+  id: "Rp268JB6Ne4",
+  parent: {
+  id: "qtr8GGlm4gg"
+  }
+  },
+  {
+  name: "Afro Arab Clinic",
+  id: "cDw53Ej8rju",
+  parent: {
+  id: "qtr8GGlm4gg"
+  }
+  },
+  {
+  name: "Agape CHP",
+  id: "GvFqTavdpGE",
+  parent: {
+  id: "U6Kr7Gtpidn"
+  }
+  },
+  {
+  name: "Ahamadyya Mission Cl",
+  id: "plnHVbJR6p4",
+  parent: {
+  id: "QywkxFudXrC"
+  }
+  },
+  {
+  name: "Ahmadiyya Muslim Hospital",
+  id: "BV4IomHvri4",
+  parent: {
+  id: "NNE0YMCDZkO"
+  }
+  },
+  {
+  name: "Air Port Centre, Lungi",
+  id: "qjboFI0irVu",
+  parent: {
+  id: "vn9KJsLyP5f"
+  }
+  },
+  {
+  name: "Alkalia CHP",
+  id: "dWOAzMcK2Wt",
+  parent: {
+  id: "J4GiUImJZoE"
+  }
+  },
+  {
+  name: "Allen Town Health Post",
+  id: "kbGqmM6ZWWV",
+  parent: {
+  id: "C9uduqDZr9d"
+  }
+  },
+  {
+  name: "Approved School CHP",
+  id: "eoYV2p74eVz",
+  parent: {
+  id: "C9uduqDZr9d"
+  }
+  },
+  {
+  name: "Arab Clinic",
+  id: "nq7F0t1Pz6t",
+  parent: {
+  id: "TQkG0sX9nca"
+  }
+  },
+  {
+  name: "Baama CHC",
+  id: "r5WWF9WDzoa",
+  parent: {
+  id: "X7dWcGerQIm"
+  }
+  },
+  {
+  name: "Babara CHC",
+  id: "yMCshbaVExv",
+  parent: {
+  id: "fRLX08WHWpL"
+  }
+  },
+  {
+  name: "Badala MCHP",
+  id: "tlMeFk8C4CG",
+  parent: {
+  id: "Lt8U7GVWvSR"
+  }
+  },
+  {
+  name: "Badjia",
+  id: "YuQRtpLP10I",
+  parent: {
+  id: "O6uvpzGd5pu"
+  }
+  },
+  {
+  name: "Bafodia CHC",
+  id: "Jiymtq0A01x",
+  parent: {
+  id: "XrF5AvaGcuw"
+  }
+  },
+  {
+  name: "Bagruwa",
+  id: "jPidqyo7cpF",
+  parent: {
+  id: "jmIPBj66vD6"
+  }
+  },
+  {
+  name: "Baiama CHP",
+  id: "XtuhRhmbrJM",
+  parent: {
+  id: "M2qEv692lS6"
+  }
+  },
+  {
+  name: "Bai Bureh Memorial Hospital",
+  id: "BH7rDkWjUqc",
+  parent: {
+  id: "vn9KJsLyP5f"
+  }
+  },
+  {
+  name: "Baiima CHP",
+  id: "c41XRVOYNJm",
+  parent: {
+  id: "yu4N82FFeLm"
+  }
+  },
+  {
+  name: "Bai Largo MCHP",
+  id: "Rll4VmTDRiE",
+  parent: {
+  id: "nV3OkyzF4US"
+  }
+  },
+  {
+  name: "Bailor CHP",
+  id: "Eyj2kiEJ7M3",
+  parent: {
+  id: "fRLX08WHWpL"
+  }
+  },
+  {
+  name: "Baiwala CHP",
+  id: "HFyjUvMjQ8H",
+  parent: {
+  id: "lYIM1MXbSYS"
+  }
+  },
+  {
+  name: "Bakeloko CHP",
+  id: "MHAWZr2Caxw",
+  parent: {
+  id: "NNE0YMCDZkO"
+  }
+  },
+  {
+  name: "Bambara Kaima CHP",
+  id: "LOpWauwwghf",
+  parent: {
+  id: "KXSqt7jv6DU"
+  }
+  },
+  {
+  name: "Bambara MCHP",
+  id: "mUuCjQWMaOc",
+  parent: {
+  id: "X7dWcGerQIm"
+  }
+  },
+  {
+  name: "Bambawolo CHP",
+  id: "TNbHYOuQi8s",
+  parent: {
+  id: "KIUCimTXf8Q"
+  }
+  },
+  {
+  name: "Bambuibu Tommy MCHP",
+  id: "aSfF9kuNINJ",
+  parent: {
+  id: "RndxKqQGzUl"
+  }
+  },
+  {
+  name: "Bambukoro MCHP",
+  id: "wYLjA4vN6Y9",
+  parent: {
+  id: "VGAFxBXz16y"
+  }
+  },
+  {
+  name: "Banana Island MCHP",
+  id: "jjtzkzrmG7s",
+  parent: {
+  id: "qtr8GGlm4gg"
+  }
+  },
+  {
+  name: "Bandajuma Clinic CHC",
+  id: "FNnj3jKGS7i",
+  parent: {
+  id: "NqWaKXcg01b"
+  }
+  },
+  {
+  name: "Bandajuma Kpolihun CHP",
+  id: "ABM75Q1UfoP",
+  parent: {
+  id: "ERmBhYkhV6Y"
+  }
+  },
+  {
+  name: "Bandajuma MCHP",
+  id: "rx9ubw0UCqj",
+  parent: {
+  id: "U6Kr7Gtpidn"
+  }
+  },
+  {
+  name: "Bandajuma Sinneh MCHP",
+  id: "OZ1olxsTyNa",
+  parent: {
+  id: "cM2BKSrj9F9"
+  }
+  }]
+ console.log(OrgUnits);
  
-
-
-
 
 
 
  // andicators api call to dummy indicators, to be changed when dhis2 problems are fixed
 const [rowData, setRowData] = useState([]);
     useEffect(()=>{
-       loadIndicators();
-    },[]);
+    loadIndicators();
+  },[]);
 
+  //https://my.api.mockaroo.com/indicators.json?key=4ad64710
 const loadIndicators = async () => {
-    const response = await fetch(`https://my.api.mockaroo.com/indicators.json?key=4ad64710`);
+    const response = await fetch(`https://my.api.mockaroo.com/indicators.json?key=4ad64710`,{
+      method: 'GET',
+        headers: {
+            'Authorization' : basicAuth,
+            'Content-type': 'application/json',
+        }
+    })
     const indicators = await response.json();
     //logging the array on the console to check if its working fine
     console.log(indicators);
@@ -115,7 +355,7 @@ const ReportTemplatePreview = (event) => {
         <div className="my-NewReport">
             <div style={{ maxHeight: "100px",
                   marginLeft: "5px",marginRight:"5px", paddingTop: "5px" }}>
-                  <MDBBtn  color="primary" onClick={handleBtnClick}> Home </MDBBtn>
+                  <Button  type="primary"  style={{ marginLeft: 8 }} onClick={handleBtnClick}> Home </Button>
              </div>
            <hr />
 
@@ -124,14 +364,6 @@ const ReportTemplatePreview = (event) => {
                 <MDBCol className="mb-3" md="30">
                  <p className="h4 text-center py-4">Create New Report</p>
                  <MDBRow style={{marginLeft:"3rem"}}>
-
-                 {/**A section for the drop down to select OrgUnit */}
-                    <MDBContainer style={{paddingTop:"1rem",marginRight:"8.2rem", display:"flex" }}>
-                        <MDBInputGroup>
-                        
-                   
-                        </MDBInputGroup>          
-                      </MDBContainer>
 
                     {/** The form is starting from here */}
                      <MDBCol md="4" >
@@ -200,10 +432,10 @@ const ReportTemplatePreview = (event) => {
                                 <div className="ag-theme-alpine" style={ { height: "250px", width: "600px" } }>
                     
                                   <AgGridReact
-                                         rowData={rowData}
-                                          rowSelection="multiple">
-                                       <AgGridColumn field="id" sortable={true} filter={true}  checkboxSelection={true}  pagination={true} ></AgGridColumn> 
-                                       <AgGridColumn field="displayName" sortable={true} filter={true} ></AgGridColumn>
+                                      rowData={rowData}
+                                      rowSelection="multiple">
+                                      <AgGridColumn field="id" sortable={true} filter={true}  checkboxSelection={true}  pagination={true} ></AgGridColumn> 
+                                      <AgGridColumn field="displayName" sortable={true} filter={true} ></AgGridColumn>
                                   </AgGridReact>
                             
                                 </div>
@@ -214,9 +446,9 @@ const ReportTemplatePreview = (event) => {
                       </MDBCard>
                       </MDBCol>
                     <MDBCardFooter>
-                    <MDBBtn  color="primary" type="submit" style={{justifyContent:"center", marginTop:"1rem", marginLeft:"1rem"}} onClick={showReportTemplate}>
+                    <Button  type="primary" onClick={showReportTemplate}>
                     preview
-                   </MDBBtn>
+                  </Button>
                   </MDBCardFooter>
                   </MDBRow>
                  </MDBCol> 

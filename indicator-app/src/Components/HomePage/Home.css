@@ -13,13 +13,14 @@
     margin-right:5px;
     padding-top: 5px;
     margin-top: 1rem;
-    border-bottom: 3px solid rgba(4, 81, 246, 0.787);
+    /* border-bottom: 3px solid rgba(4, 81, 246, 0.787);
     border-radius: 6px;
-    padding: 8px 16px 8px 36px;
+    padding: 8px 16px 8px 36px; */
     padding-bottom: 1.5rem;
 
     
 }
+
 .myFragment{
     position: relative;
     float: right;
@@ -28,8 +29,8 @@
 .App-header > Fragment{
     display: inline;
     color: lightgray;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    /* padding-bottom: 10px;
+    margin-bottom: 10px; */
    
  
 }
@@ -38,19 +39,14 @@
     position: absolute;
     float: right;
 }
-.myLogo{
-    max-height: 100PX;
 
-}
 
 .myLogo > img{
     padding-left: 10px;
     padding-top: 10px;
-    max-height: 100PX;
+    max-height: 80PX;
     max-width: 80px;
-    padding-bottom: 20px;
-    margin-bottom: 10px;
-   
+    padding-bottom: 1px;   
 }
 
 title{
