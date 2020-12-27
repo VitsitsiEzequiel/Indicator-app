@@ -1,0 +1,35 @@
+
+.Silvia{
+    background-color: #F0F0F0;
+}
+
+.period {
+     background-color: #F0F0F0;
+    padding-bottom: 6rem;
+}
+
+.container {
+    margin-top: 3rem;
+    margin-left: 100px;
+    margin-bottom: 5rem;
+    
+
+  }
+
+.mybtn{
+    position: absolute;
+    float: right;
+}
+
+
+.myBody{
+    padding-top: 50px;
+    margin-left: 5rem;
+    margin-right: 3rem;
+
+}
+
+option{
+    color: darkgray;
+}
+
