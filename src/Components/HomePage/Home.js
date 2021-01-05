@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { MDBBox, MDBCard, MDBCol, MDBInput, MDBRow } from "mdbreact";
+import {MDBCol,MDBRow } from "mdbreact";
 import { FaPlus } from "react-icons/fa";
-import { BiFontSize, BiTimer } from "react-icons/bi";
+import { BiTimer } from "react-icons/bi";
 import { Button, Card } from "antd";
 import "antd/dist/antd.css";
 import "./Home.css";
@@ -71,7 +71,7 @@ class Home extends Component {
                   </Button>
                 </Link>
 
-                <Link to="new-report">
+                {/* <Link to="new-report">
                   <Button style={{fontFamily: "Century Gothic, CenturyGothic, AppleGothic, sans-serif"}}
                     type="primary"
                     href="/newReport"
@@ -80,7 +80,7 @@ class Home extends Component {
                   >
                     <FaPlus style={{paddingRight:"5px",fontSize:"19px"}} /> Create
                   </Button>
-                </Link>
+                </Link> */}
               </MDBCol>
             </MDBRow>
           </Card>

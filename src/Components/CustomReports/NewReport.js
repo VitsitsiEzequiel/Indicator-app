@@ -28,7 +28,7 @@ import { Scrollbars } from "react-custom-scrollbars";
 import { makeStyles } from "@material-ui/core/styles";
 import Select from "react-select";
 import ModalView from "./ModalView";
-import { FaAngleLeft, FaEdit} from "react-icons/fa";
+import { FaAngleLeft, FaEdit } from "react-icons/fa";
 
 import makeAnimated from "react-select/animated";
 
@@ -59,6 +59,7 @@ function NewReport(props) {
   const [report, setReport] = React.useState({});
   const [description, setDescription] = React.useState("");
   const [showPreview, setShowPreview] = React.useState(false);
+  const [showLoading, setShowLoading] = React.useState(false);
   const [selectedIndicators, setSelectedIndicators] = React.useState([]);
   const [colHeaders, setColHeaders] = React.useState([]);
   const [cellData, setCellData] = React.useState([]);
@@ -347,11 +348,12 @@ function NewReport(props) {
   };
 
   //listener for editing row names
-  const editRowNames = (selectedIndicators) => {
+  const editRowNames = (indicators) => {
     var newName = prompt("enter new row name");
-    var tableCell = document.getElementById(selectedIndicators.id);
-    tableCell.innerHTML = newName;
-    selectedIndicators.name = newName;
+    let rowHeader = document.getElementById(indicators.id);
+    rowHeader.innerHTML = newName;
+    rowHeader.label = newName;
+    console.log(rowHeader.label);
   };
 
   function chunkArray(arr, n) {
@@ -482,18 +484,19 @@ function NewReport(props) {
             {selectedIndicators.map((tableRow, key) => (
               <tr key={key}>
                 <td>
-                  <FaEdit style={{ paddingRight: "5px", fontSize:"20px" }}
-                    onClick={editRowNames} />
+                  <FaEdit
+                    style={{ paddingRight: "5px", fontSize: "20px" }}
+                    onClick={editRowNames}
+                  />
                   {tableRow.label}
                 </td>
                 {indicators.map((indicator, index) => (
-                 
                   <td key={index}>
-                     {
+                    {
                       selectedIndicators.filter(
                         (obj) => obj.value === indicator.value
                       )[0].value
-                    } 
+                    }
                   </td>
                 ))}
               </tr>
@@ -526,7 +529,7 @@ function NewReport(props) {
             style={{ marginLeft: "5px", marginRight: "5px", paddingTop: "5px" }}
           >
             <Link to="/">
-              <Button type="primary" >
+              <Button type="primary">
                 <FaAngleLeft style={{ paddingRight: "5px" }} />
                 Home
               </Button>
@@ -679,6 +682,14 @@ function NewReport(props) {
           <Button type="primary" onClick={showReportTemplate}>
             {" "}
             Preview template
+            {showLoading ? (
+              <div
+                className="spinner-border mx-2 text-white spinner-border-sm"
+                role="status"
+              >
+                <span className="sr-only">Loading...</span>
+              </div>
+            ) : null}
           </Button>
         </MDBCardFooter>
 

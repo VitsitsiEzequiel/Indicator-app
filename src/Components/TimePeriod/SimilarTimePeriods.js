@@ -27,7 +27,7 @@ import { getInstance } from "d2";
 import Grid from "@material-ui/core/Grid";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-// import * as autoTable from "jspdf-autotable";
+import * as autoTable from "jspdf-autotable";
 import { Scrollbars } from "react-custom-scrollbars";
 import ModalView from "./ModalView";
 import { FaAngleLeft } from "react-icons/fa";
@@ -97,11 +97,6 @@ const SimilarTimePeriods = (props) => {
     alert("You have chosen : " + this.state.value);
     event.preventDefault();
   }
-
-  //Handle btn click
-  // function handleBtnClick(e) {
-  //   window.location.href = "/";
-  // }
 
   //Api call
   const comparisons = (dxID, period, ouID, returnBack) => {
@@ -538,7 +533,7 @@ const SimilarTimePeriods = (props) => {
                   </MDBRow>
                 </MDBRow>
               </MDBCol>
-              <MDBCol size="2"> vs </MDBCol>
+            
               <div>
                 <MDBRow style={{ marginLeft: "5rem" }}>
                   <MDBBtn color="primary" size="sm" onClick={handleCompare}>
